@@ -15,10 +15,11 @@ def fasta2csv(fasta_dir,
             line = fasta_file.readline()
             if line is None or line == "":
                 break
-            line = line[0:-1]
+            line = line.split("\n")[0]
             if line[0] == ">":
                 if entry is not None:
                     csv_writer.writerow(entry)
+                    print("Writing entry {:d}".format(entry_num), end="\r")
                     entry_num += 1
                 entry = line.split("|")
                 entry[0] = entry[0][1:]
