@@ -63,7 +63,7 @@ def match(matched_dir,
             else:
                 if insert is True:
                     matched_headers.insert(
-                        matched_column % (len(matching_headers) + 1),
+                        matched_column % (len(matched_headers) + 1),
                         matching_headers[matching_column]
                     )
                 else:

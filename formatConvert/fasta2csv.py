@@ -15,6 +15,8 @@ def fasta2csv(fasta_dir,
             line = fasta_file.readline()
             if line is None or line == "":
                 break
+            elif line == "\n":
+                continue
             line = line.split("\n")[0]
             if line[0] == ">":
                 if entry is not None:

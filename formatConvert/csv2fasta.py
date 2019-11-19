@@ -4,7 +4,7 @@ import os
 
 def csv2fasta(csv_dir,
               fasta_dir,
-              line_width=6,
+              line_width=80,
               headers=True):
 
     with open(csv_dir, "r") as csv_file, open(fasta_dir, "w") as fasta_file:
@@ -21,7 +21,7 @@ def csv2fasta(csv_dir,
             fasta_file.write('{}\n'.format(format_code(entry[-1], line_width)))
             print("Writing entry {:d}".format(idx), end="\r")
         print("Conversion finished. {:d} entries in total.".format(idx))
-    
+
 
 def format_code(code, line_width=80):
     length = len(code)
@@ -35,4 +35,5 @@ def format_code(code, line_width=80):
 
 
 if __name__ == "__main__":
-    csv2fasta('C:\\Users\\white\\Desktop\\test.csv', 'C:\\Users\\white\\Desktop\\test_2.fa')
+    csv2fasta('C:\\Users\\white\\Desktop\\test.csv',
+              'C:\\Users\\white\\Desktop\\test_2.fa')
